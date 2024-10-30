@@ -1,0 +1,25 @@
+POST {{local_api}}/api/notices/
+Content-Type: application/json
+
+{
+    "email": "example1030@cowave.kr"
+}
+
+> {%
+    client.global.set('id', response.body.id)
+    client.log(client.global.get('id'));
+%}
+
+GET {{local_api}}/api/notices/
+
+GET {{local_api}}/api/notices/{{id}}/
+
+PUT {{local_api}}/api/notices/{{id}}/
+Content-Type: application/json
+
+{
+    "email": "example3333@cowave.kr"
+}
+
+DELETE {{local_api}}/api/notices/{{id}}/
+Content-Type: application/json

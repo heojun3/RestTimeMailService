@@ -1,0 +1,6 @@
+.venv
+*.pyc
+appdata/cookies.json
+*.log
+.env
+.DS_Store

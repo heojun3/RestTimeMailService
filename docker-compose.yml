@@ -1,0 +1,17 @@
+services:
+  django-web:
+    build: .
+    restart: always
+    ports:
+      - '8052:8000'
+    volumes:
+      - .:/app
+    command: sh -c "python manage.py migrate && gunicorn config.wsgi:application --bind=0.0.0.0:8000 --reload --workers=3 --threads=3 --worker-class=gthread --timeout=3600"
+
+  selenium-chrome:
+    image: selenium/standalone-chrome
+    platform: linux/amd64
+    restart: always
+    ports:
+      - '4444:4444'
+    shm_size: '2gb'
