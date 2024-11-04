@@ -4,3 +4,5 @@ appdata/cookies.json
 *.log
 .env
 .DS_Store
+.git_private
+.git_public
